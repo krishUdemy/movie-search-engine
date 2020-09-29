@@ -4,10 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Put your description here.">
+  <meta name="Description" content="Search movies based on your favourite movie name.">
   <base href="/">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     html,
     body {
       margin: 0;
@@ -16,11 +20,23 @@
       background-color: #ededed;
     }
   </style>
-  <title>movie-search-engine</title>
+
+  <title>Movie search engine</title>
 </head>
 
 <body>
+  <header>
+    <h1>Movie search engine</h1>
+    <h2>A web app.</h2>
+  </header>
   <movie-search-engine></movie-search-engine>
+
+  <footer>
+    <p>
+      Developed by Krishna Anthati
+      <a href="https://github.com/krishUdemy/movie-search-engine" target="_blank">github</a>
+    </p>
+  </footer>
 
   <script type="module" src="./src/movie-search-engine.js"></script>
 </body>
