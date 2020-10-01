@@ -7,9 +7,9 @@ export class MovieCard extends LitElement {
       .card-container {
         border: 1px solid gray;
         margin: 12px;
-        color: red;
         width: 100%;
         display: inline-block;
+        box-shadow: #808080 2px 2px;
       }
 
       .card-container img {
@@ -38,6 +38,7 @@ export class MovieCard extends LitElement {
         text-decoration: none;
         display: inline-block;
       }
+      
       .card-footer ul li:last-child {
         width: 24%;
         float: right;
@@ -61,8 +62,8 @@ export class MovieCard extends LitElement {
     return html`
       <div class="card-container">
         ${this.item.Poster !== 'N/A'
-          ? html`<img src="${this.item.Poster}" />`
-          : html`<img src="http://via.placeholder.com/300x403" />`}
+          ? html`<img src="${this.item.Poster}" alt="">`
+          : html`<img src="http://via.placeholder.com/300x403" alt="">`}
         <div class="card-footer">
           <ul class="card-details">
             <li><p>${this.item.Title}</p></li>

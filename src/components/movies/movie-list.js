@@ -2,10 +2,10 @@
 import { LitElement, html, css } from 'lit-element';
 import { repeat } from 'lit-html/directives/repeat';
 
-// Lion components
+// Lion component
 import '@lion/input/lion-input.js';
 
-// Custom components
+// Custom component
 import './movie-card.js';
 
 export class MovieList extends LitElement {
@@ -13,15 +13,29 @@ export class MovieList extends LitElement {
     return css`
       .main-container {
         width: 100%;
-        background-color: #fff;
       }
 
-      .movies-list {
+      .movie-list {
         width: 95%;
         margin: 0 auto;
         display: inline-block;
       }
 
+      .alt-movie-text {
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        color: gray;
+        font-weight: bolder;
+        font-size: 20px;
+      }
+
+      /* Large devices (laptops/desktops, 992px and up) */
+      @media only screen and (min-width: 992px) {
+        .movie-list {
+          width: 100%;
+        }
+      }
     `;
   }
 
@@ -41,9 +55,9 @@ export class MovieList extends LitElement {
   render() {
     return html`
       <div class="main-container">
-        <div class="movies-list">
+        <div class="movie-list">
           ${this.movieList.length === 0
-            ? html`<p>Please enter a search key.</p>`
+            ? html`<p class='alt-movie-text'>Please enter a search term.</p>`
             : html`${repeat(
                 this.movieList,
                 item => item.imdbID,

@@ -1,47 +1,57 @@
+// Core component
 import { LitElement, html, css } from 'lit-element';
 
+// Lion component
 import { AjaxClass } from '@lion/ajax';
 
-import './components/movies/movie-list.js';
-import './components/app/search-box.js';
+// Custom components
+import '../components/movies/movie-list.js';
+import '../components/header/header-section.js';
+import '../components/footer/footer-element.js';
 
 export class AppRoot extends LitElement {
   static get properties() {
     return {
-      appName: { type: String },
       movieList: { type: Array }
     };
   }
 
   static get styles() {
     return css`
-      :host {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        color: #1a2b42;
-        margin: 0 auto;
+      header {
+        font-size: 24px;
+        font-family: Arial, Helvetica, sans-serif;
         text-align: center;
+        padding: 12px;
+        color: white;
+        border: 1px solid #ff6200;
+        display: inline-block;
+      }
+
+      .header {
+        display: inline-block;
+        background: #ff6200;
+        position: fixed;
+        width: 100%;
+      }
+
+      .content {
+        display: block;
+        padding: 70px 0 60px;
       }
     `;
   }
 
   constructor() {
     super();
-    this.appName = 'Movies main container';
     this.movieList = [];
   }
 
   render() {
     return html`
       <div>
-        <h2>Movies main container</h2>
-        <header>
-          Welcome to the movie search app!
-          <search-box @start-search="${e => this.searchMovie(e)}"></search-box>
-        </header>
-        <movie-list .movieList=${this.movieList}></movie-list>
+        <header-element @start-search="${ev => this.searchMovie(ev)}"></header-element>
+        <movie-list class="content" .movieList=${this.movieList}></movie-list>
         <footer-element></footer-element>
       </div>
     `;
@@ -65,5 +75,6 @@ export class AppRoot extends LitElement {
         this.movieList.Search = [];
       });
   }
-
 }
+
+customElements.define('app-root', AppRoot);

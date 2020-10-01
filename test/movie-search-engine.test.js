@@ -1,6 +1,6 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import '../src/app-root.js';
+import '../src/app/app-root.js';
 
 describe('MovieSearchEngine', () => {
   let element;
