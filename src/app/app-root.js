@@ -12,7 +12,7 @@ import '../components/footer/footer-element.js';
 export class AppRoot extends LitElement {
   static get properties() {
     return {
-      movieList: { type: Array }
+      movieList: { type: Array },
     };
   }
 
@@ -35,6 +35,12 @@ export class AppRoot extends LitElement {
         width: 100%;
       }
 
+      .app-wrapper {
+        width: 100%;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
       .content {
         display: block;
         padding: 70px 0 60px;
@@ -49,8 +55,10 @@ export class AppRoot extends LitElement {
 
   render() {
     return html`
-      <div>
-        <header-element @start-search="${ev => this.searchMovie(ev)}"></header-element>
+      <div class="app-wrapper">
+        <header-element
+          @start-search="${ev => this.searchMovie(ev)}"
+        ></header-element>
         <movie-list class="content" .movieList=${this.movieList}></movie-list>
         <footer-element></footer-element>
       </div>
@@ -59,6 +67,7 @@ export class AppRoot extends LitElement {
 
   searchMovie(ev) {
     const myAjax = new AjaxClass({ jsonPrefix: ")]}'," });
+
     myAjax
       .get(`https://www.omdbapi.com/?apikey=a5549d08&s=${ev.detail.searchKey}`)
       .then(response => {
