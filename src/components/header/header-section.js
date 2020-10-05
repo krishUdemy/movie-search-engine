@@ -133,7 +133,6 @@ export class Header extends LitElement {
     const event = new CustomEvent('start-search', {
       detail: { searchKey: this.searchKey },
       bubbles: true,
-      composed: true,
     });
     this.dispatchEvent(event);
   }

@@ -3,7 +3,7 @@ import { LitElement, html, css } from 'lit-element';
 import { repeat } from 'lit-html/directives/repeat';
 
 // Lion component
-import '@lion/input/lion-input.js';
+import '@lion/input/lion-input';
 
 // Custom component
 import './movie-card.js';

@@ -67,6 +67,7 @@ export class AppRoot extends LitElement {
 
   searchMovie(ev) {
     const myAjax = new AjaxClass({ jsonPrefix: ")]}'," });
+
     myAjax
       .get(`https://www.omdbapi.com/?apikey=a5549d08&s=${ev.detail.searchKey}`)
       .then(response => {
