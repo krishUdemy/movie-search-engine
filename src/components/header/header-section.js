@@ -75,23 +75,6 @@ export class Header extends LitElement {
           margin-left: 27px;
         }
       }
-
-      /* Medium devices (tablets and large phones, 768px and up) */
-      @media only screen and (min-width: 768px) {
-        /* .header-container {
-          background-color: #ff6200;
-          display: flex;
-        }
-
-        .title {
-          display: flex;
-          align-items: center;
-        }
-
-        .search-container {
-          margin-left: 27px;
-        } */
-      }
     `;
   }
 

@@ -43,7 +43,7 @@ export class AppRoot extends LitElement {
 
       .content {
         display: block;
-        padding: 70px 0 60px;
+        padding: 85px 0 60px;
       }
     `;
   }
@@ -70,17 +70,12 @@ export class AppRoot extends LitElement {
 
     myAjax
       .get(`https://www.omdbapi.com/?apikey=a5549d08&s=${ev.detail.searchKey}`)
-      .then(response => {
-        if (response.data.Response === 'False') {
-          this.errorMessage = response.data.Error;
-          this.movieList.Search = [];
-        } else {
-          this.movieList = response.data.Search;
-          this.errorMessage = null;
-        }
+      .then(({ data: { Search = [], Error } }) => {
+        this.errorMessage = Error;
+        this.movieList = [...Search];
       })
-      .catch(error => {
-        this.errorMessage = error !== '' ? error : 'Movie not found!';
+      .catch((error = 'Movie not found!') => {
+        this.errorMessage = error;
         this.movieList.Search = [];
       });
   }
