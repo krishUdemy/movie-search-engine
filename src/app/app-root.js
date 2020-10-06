@@ -13,6 +13,7 @@ export class AppRoot extends LitElement {
   static get properties() {
     return {
       movieList: { type: Array },
+      error: { type: String },
     };
   }
 
@@ -43,7 +44,28 @@ export class AppRoot extends LitElement {
 
       .content {
         display: block;
-        padding: 85px 0 60px;
+        padding: 0px 0 60px;
+      }
+
+      .error {
+        font-size: 16px;
+        color: rgb(133, 100, 4);
+        padding-left: 10px;
+        padding-top: 103px;
+      }
+
+      /* Small devices (portrait tablets and large phones, 600px and up) */
+      @media only screen and (min-width: 600px) {
+        .error {
+          padding-top: 88px;
+        }
+      }
+
+      /* Medium devices (landscape tablets, 768px and up) */
+      @media only screen and (min-width: 768px) {
+        .error {
+          padding-top: 72px;
+        }
       }
     `;
   }
@@ -51,14 +73,14 @@ export class AppRoot extends LitElement {
   constructor() {
     super();
     this.movieList = [];
+    this.error = null;
   }
 
   render() {
     return html`
       <div class="app-wrapper">
-        <header-element
-          @start-search="${ev => this.searchMovie(ev)}"
-        ></header-element>
+        <header-element @start-search="${ev => this.searchMovie(ev)}"></header-element>
+        <h2 class="error">${this.error}</h2>
         <movie-list class="content" .movieList=${this.movieList}></movie-list>
         <footer-element></footer-element>
       </div>
@@ -71,11 +93,11 @@ export class AppRoot extends LitElement {
     myAjax
       .get(`https://www.omdbapi.com/?apikey=a5549d08&s=${ev.detail.searchKey}`)
       .then(({ data: { Search = [], Error } }) => {
-        this.errorMessage = Error;
+        this.error = Error;
         this.movieList = [...Search];
       })
       .catch((error = 'Movie not found!') => {
-        this.errorMessage = error;
+        this.error = error;
         this.movieList.Search = [];
       });
   }

@@ -4,9 +4,10 @@ export class Header extends LitElement {
   static get styles() {
     return css`
       .header-container {
-        background-color: #ff6200;
-        padding: 20px;
+        background-color: #00ff6a;
+        padding: 14px;
         position: fixed;
+        top: 0px;
         width: 100%;
         z-index: 999;
       }

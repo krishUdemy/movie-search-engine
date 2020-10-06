@@ -10,7 +10,7 @@ export class FooterElement extends LitElement {
         margin: 0;
         align-items: center;
         background-color: #fff;
-        height: 50px;
+        height: 40px;
         position: fixed;
         bottom: 0;
         justify-content: center;
@@ -36,12 +36,7 @@ export class FooterElement extends LitElement {
     return html`
       <footer class="footer-container">
         Developed by Krishnaiah Anthati
-        <a
-          class="git-link"
-          href="https://github.com/krishUdemy/movie-search-engine"
-          target="_blank"
-          >github</a
-        >
+        <a class="git-link" href="https://github.com/krishUdemy/movie-search-engine" target="_blank">github</a>
       </footer>
     `;
   }
