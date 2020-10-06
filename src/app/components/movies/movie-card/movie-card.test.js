@@ -1,7 +1,7 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import '../src/components/movies/movie-card.js';
-import { movieList } from './movie-list-mock.js';
+import './movie-card.js';
+import { movieList } from '../movie-list-mock.js';
 
 describe('<movie-card>', () => {
   let el1;

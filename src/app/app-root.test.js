@@ -3,8 +3,8 @@ import sinon from 'sinon';
 
 import '@lion/ajax';
 
-import '../src/app/app-root.js';
-import '../src/components/header/header-section.js';
+import './app-root.js';
+import './components/header/header-section.js';
 
 describe('<app-root>', () => {
   let el;
