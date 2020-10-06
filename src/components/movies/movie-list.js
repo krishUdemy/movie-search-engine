@@ -66,7 +66,7 @@ export class MovieList extends LitElement {
       <div class="movie-list-container">
         <div class="movie-list">
           ${this.movieList.length === 0
-            ? html`<p class="alt-movie-text">Please enter a search term.</p>`
+            ? html``
             : html`${repeat(
                 this.movieList,
                 item => item.imdbID,
