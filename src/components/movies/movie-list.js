@@ -31,7 +31,8 @@ export class MovieList extends LitElement {
         font-weight: bolder;
         font-size: 20px;
       }
-      /* Large devices (laptops/desktops, 992px and up) */
+
+      /* Medium devices (landscape tablets, 768px and up) */
       @media only screen and (min-width: 768px) {
         .movie-list-container {
           width: 100%;

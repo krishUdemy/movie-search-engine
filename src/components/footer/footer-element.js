@@ -29,13 +29,6 @@ export class FooterElement extends LitElement {
         padding: 3px 10px;
         text-decoration: none;
       }
-
-      /* .git-link a:active,
-      .git-link a:hover,
-      .git-link a:focus {
-        color: #ff6200;
-        text-decoration: none;
-      } */
     `;
   }
 
