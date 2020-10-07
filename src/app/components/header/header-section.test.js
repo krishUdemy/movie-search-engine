@@ -64,10 +64,4 @@ describe('check event of search-input', () => {
     el = await fixture(html`<lion-input></lion-input>`);
   });
 
-  it('fire change event of search-input', async () => {
-    expect(el.value).to.eq('');
-    el.value = 'Life';
-    await el.updateComplete;
-    expect(el.value).equal('Life');
-  });
 });

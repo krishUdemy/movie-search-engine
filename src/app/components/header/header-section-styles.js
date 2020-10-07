@@ -57,6 +57,7 @@ export const headerStyles = css`
     .search-container ul li {
       float: left;
     }
+    
     .header-container {
       background-color: #ff6200;
       display: flex;
