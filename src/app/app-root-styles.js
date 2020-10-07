@@ -21,6 +21,7 @@ export const appRootStyles = css`
 
   .loader {
     padding: 110px 10px;
+    color: rgb(133, 100, 4);
   }
 
   /* Small devices (portrait tablets and large phones, 600px and up) */

@@ -37,17 +37,4 @@ describe('<app-root>', () => {
     expect(container).to.exist;
   });
 
-  it('check event of search-btn', async () => {
-    const btn = el.shadowRoot.querySelector('header-element');
-    const spy = sinon.spy();
-    el.addEventListener('start-search', spy);
-    btn.dispatchEvent(
-      new CustomEvent('start-search', {
-        detail: { searchKey: 'French' },
-        bubbles: true,
-      })
-    );
-    await el.updateComplete;
-    expect(spy).to.exist;
-  });
 });
